@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style-with-prefix.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <style>
+        .srouce{
+            text-align: center;
+            color: #ffffff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="form-container">
+
+
+            <div class="form-body">
+                <h2 class="title">Login </h2>
+                <div class="social-login">
+                    
+                <form method="POST" action="login.php" class="the-form">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password">
+               <br>
+                    <div class="g-recaptcha" data-sitekey="6LcGb3YpAAAAAMKevu9pZ-fmsqBpRw_w5r67gX6D"></div>
+
+                    <input type="submit" value="Log In">
+
+                </form>
+
+            </div><!-- FORM BODY-->
+
+            <div class="form-footer">
+                <div>
+                    <span>Don't have an account?</span> <a href="register.html">Sign Up</a>
+                </div>
+            </div><!-- FORM FOOTER -->
+
+        </div><!-- FORM CONTAINER -->
+    </div>
+
+</body>
+</html>
