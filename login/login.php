@@ -43,4 +43,5 @@
         // reCAPTCHA no verificado correctamente
         echo "<script> alert('Error: Por favor, verifica que eres humano.');window.location= '/Producto3DWI/Producto3DWI/login/index.html' </script>";
     }
+    //
 ?>
