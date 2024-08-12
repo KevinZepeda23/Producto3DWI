@@ -124,47 +124,43 @@
                 </div>
             </div>
         </header>
-        <!--offcanvas -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header"><!--  id="offcanvasRightLabel" -->
-            <h5 id="offcanvasRightLabel"></h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-         </div>
-        <br>
-        <br>
+       <!-- Offcanvas -->
         
-        <div class="offcanvas-body">         
-            <form action="index.php">
-              <ul>
-              <li style="--clr:#FF6A2F">
-              <a data-text="&nbsp;Contact">&nbsp;Contact&nbsp;</a>
-             </ul>
-                    <div class="form-group">
-                    <input type="name" class="input" placeholder="name" name="name" id="name" required>
-                      <label for="" class="label">Name </label>
-                     </div>
-                    <div class="form-group">
-                      <input type="email" class="input" placeholder="example@fake.com" name="email" id="email" required>
-                      <label for="" class="label">Email </label>
-                    </div>
-                    <div class="form-group">
-                    <input type="message" class="input" placeholder="message" name="message" id="message" required>
-                      <label for="" class="label">Message </label>
-                    </div>
-                    <button type="submit">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Send</button>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Contacto</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form action="index.php" method="post">
+            <h2>Envíanos un Mensaje</h2>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" class="form-control" placeholder="example@fake.com" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" placeholder="Tu mensaje aquí..." name="message" id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class="contact-social">
+                <h3>Síguenos</h3>
+                <nav>
+                    <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="WhatsApp" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </nav>
+            </div>
+        </form>
+    </div>
+</div>
 
-
-                    <div class="contact">
-                        <nav>
-                        <a href=""><i class="fab fa-youtube"></i></a>
-                        <a href=""><i class="fa-brands fa-tiktok"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-whatsapp"></i></a>
-                        </nav>
-                    </div>
-           </form>
-         
 
         </div>
     </div>
