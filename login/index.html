@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta charset para definir la codificación de caracteres del documento HTML -->
     <meta charset="UTF-8">
+    <!-- Meta viewport para controlar el diseño en navegadores móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página web, que se muestra en la pestaña del navegador -->
     <title>Login</title>
+    <!-- Enlace a Google Fonts para incluir la fuente 'Muli' con los pesos especificados -->
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Enlace a una hoja de estilos externa para estilos CSS adicionales -->
     <link rel="stylesheet" href="./assets/css/style-with-prefix.css">
+    <!-- Script para Google reCAPTCHA para protección contra bots -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
-        .srouce{
-            text-align: center;
-            color: #ffffff;
-            padding: 10px;
+        /* Estilos CSS internos para la página */
+        .srouce {
+            text-align: center; /* Alinea el texto al centro dentro del elemento */
+            color: #ffffff; /* Establece el color del texto a blanco */
+            padding: 10px; /* Añade un relleno de 10px alrededor del texto */
         }
     </style>
 </head>
 <body>
 
+    <!-- Contenedor principal que contiene el formulario de inicio de sesión -->
     <div class="main-container">
+        <!-- Contenedor para el formulario y sus elementos -->
         <div class="form-container">
 
-
+            <!-- Contenedor para el cuerpo del formulario -->
             <div class="form-body">
-                <h2 class="title">Login </h2>
+                <!-- Título del formulario -->
+                <h2 class="title">Login</h2>
+                <!-- Contenedor para el inicio de sesión social (vacío en este caso) -->
                 <div class="social-login">
                     
+                <!-- Elemento de formulario para la presentación del inicio de sesión -->
                 <form method="POST" action="login.php" class="the-form">
-
+                    <!-- Campo de entrada para la dirección de correo electrónico -->
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Enter your email">
 
+                    <!-- Campo de entrada para la contraseña -->
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Enter your password">
                <br>
+                    <!-- Widget de Google reCAPTCHA para seguridad -->
                     <div class="g-recaptcha" data-sitekey="6LcGb3YpAAAAAMKevu9pZ-fmsqBpRw_w5r67gX6D"></div>
 
+                    <!-- Botón de envío para el formulario -->
                     <input type="submit" value="Log In">
-
                 </form>
 
-            </div><!-- FORM BODY-->
+            </div><!-- Fin del CUERPO DEL FORMULARIO -->
 
+            <!-- Pie de página del formulario -->
             <div class="form-footer">
                 <div>
+                    <!-- Texto y enlace para los usuarios que no tienen cuenta -->
                     <span>Don't have an account?</span> <a href="register.html">Sign Up</a>
                 </div>
-            </div><!-- FORM FOOTER -->
+            </div><!-- Fin del PIE DE PÁGINA DEL FORMULARIO -->
 
-        </div><!-- FORM CONTAINER -->
+        </div><!-- Fin del CONTENEDOR DEL FORMULARIO -->
     </div>
 
 </body>
