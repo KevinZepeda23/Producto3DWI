@@ -1,6 +1,8 @@
 <?php
+session_start(); // Asegúrate de iniciar la sesión al inicio de cada archivo que la utilice
 
-require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para obtener los vehículos
+ // Usa require_once para evitar la inclusión múltiple
+require_once 'controlador/controlador.php'; // Usa require_once para evitar la inclusión múltiple
 
 // Obtiene el número de artículos en el carrito
 function obtenerNumeroArticulosEnCarrito() {
@@ -13,11 +15,7 @@ function obtenerNumeroArticulosEnCarrito() {
 $vehiculos = obtenerVehiculos();
 ?>
 
-
-
-<?php require "templates/header2.php" ?>
-
-
+<?php include 'templates/header2.php'; ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,6 +26,7 @@ $vehiculos = obtenerVehiculos();
     <style>
         body {
             font-family: Arial, sans-serif;
+            /* background-color: #f5f5f5; */
             margin: 0;
             padding: 20px;
         }
@@ -136,28 +135,25 @@ $vehiculos = obtenerVehiculos();
 </head>
 <body>
 
-<?php include 'modelo/modelo.php'; ?>
-<?php include 'controlador/controlador.php'; ?>
-
 <h1>Vehículos Disponibles</h1>
-        <div class="carrito-icono">
-            <a href="carrito.php">
-                <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-                <span class="numero-articulos"><?php echo obtenerNumeroArticulosEnCarrito(); ?></span> <!-- Número de artículos -->
-            </a>
+<div class="carrito-icono">
+    <a href="carrito.php">
+        <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+        <span class="numero-articulos"><?php echo obtenerNumeroArticulosEnCarrito(); ?></span> <!-- Número de artículos -->
+    </a>
+</div>
+
+<div class="vehiculos">
+    <?php foreach ($vehiculos as $vehiculo): ?>
+        <div class="vehiculo">
+            <img src="assets/img/<?php echo $vehiculo['imagen']; ?>" alt="<?php echo $vehiculo['nombre']; ?>">
+            <h2><?php echo $vehiculo['nombre']; ?></h2>
+            <p>Precio: $<?php echo number_format($vehiculo['precio'], 2); ?></p>
+            <a href="controlador/controlador.php?accion=agregar&id=<?php echo $vehiculo['id']; ?>" class="btn-add-cart">Agregar al carrito <i class="fas fa-shopping-cart"></i></a>
         </div>
-    </header>
-    
-    <div class="vehiculos">
-        <?php foreach ($vehiculos as $vehiculo): ?>
-            <div class="vehiculo">
-                <img src="assets/img/<?php echo $vehiculo['imagen']; ?>" alt="<?php echo $vehiculo['nombre']; ?>">
-                <h2><?php echo $vehiculo['nombre']; ?></h2>
-                <p>Precio: $<?php echo number_format($vehiculo['precio'], 2); ?></p>
-                <a href="controlador/controlador.php?accion=agregar&id=<?php echo $vehiculo['id']; ?>" class="btn-add-cart">Agregar al carrito <i class="fas fa-shopping-cart"></i></a>
-                </div>
-        <?php endforeach; ?>
-    </div>
+    <?php endforeach; ?>
+</div>
 
-
-<?php require 'templates/footer.php';?>
+<?php include 'templates/footer.php'; ?>
+</body>
+</html>

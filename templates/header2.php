@@ -1,4 +1,4 @@
-<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,24 +49,24 @@
                                 <span class="text nav-text">My Home</span>
                             </a>
                         </li>
-                        <li class="nav-link">
+                        <!-- <li class="nav-link">
                             <a href="history.php">
                                 <i class='bx bx-bar-chart-alt-2 icon' ></i>
                                 <span class="text nav-text">History</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-link">
                             <a href="Carrito.php">
                                 <i class='bx bx-cart icon' ></i>
                                 <span class="text nav-text">Shopping cart</span>
                             </a>
                         </li>
-                        <li class="nav-link">
+                        <!-- <li class="nav-link">
                             <a href="categoria.php">
                                 <i class='bx bx-bell icon'></i>
                                 <span class="text nav-text">Category</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-link">
                             <a href="shop.php">
                                 <i class='bx bx-grid-alt icon' ></i>
@@ -135,15 +135,15 @@
         <form action="index.php" method="post">
             <h2>Envíanos un Mensaje</h2>
             <div class="form-group">
-                <label for="name">Nombre</label>
+                <label for="name"></label>
                 <input type="text" class="form-control" placeholder="Nombre" name="name" id="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" class="form-control" placeholder="example@fake.com" name="email" id="email" required>
+                <label for="email"></label>
+                <input type="email" class="form-control" placeholder="Correo Electrónico" name="email" id="email" required>
             </div>
             <div class="form-group">
-                <label for="message">Mensaje</label>
+                <label for="message"></label>
                 <textarea class="form-control" placeholder="Tu mensaje aquí..." name="message" id="message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>

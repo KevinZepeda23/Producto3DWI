@@ -1,6 +1,6 @@
 <?php
-    include 'templates/header2.php ';
-
+session_start(); // Añade esto al principio de cada archivo PHP que utilice sesiones
+include 'templates/header2.php';
 ?>
 <?php
 require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para obtener los vehículos
@@ -13,7 +13,7 @@ require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AXmFuqJYbPQ0DRZKaTdVsxQtj5j2bC2DMWpt_wJywqWjPWfa8u4OsZ61Ia_dSZqDKChzg2dJLrrU68Er"></script>
 </head>
 <body>
     <h1>Tu Carrito de Compras</h1>
@@ -23,7 +23,7 @@ require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para 
             foreach ($_SESSION['carrito'] as $id => $cantidad) {
                 $vehiculo = obtenerVehiculoPorId($id);
                 echo "<li>" . $vehiculo['nombre'] . " x " . $cantidad . " ($" . number_format($vehiculo['precio'] * $cantidad, 2) . ")";
-                echo " <a href='controlador.php?accion=eliminar&id=" . $id . "'>Eliminar</a></li>";
+                echo " <a href='controlador/controlador.php?accion=eliminar&id=" . $id . "'>Eliminar</a></li>";
             }
             echo "<li><strong>Total: $" . number_format(obtenerTotalCarrito(), 2) . "</strong></li>";
         } else {
@@ -32,33 +32,31 @@ require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para 
         ?>
     </ul>
 
-    <!-- Formulario para PayPal -->
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <!-- Especificar la URL de retorno y de notificación -->
-        <input type="hidden" name="return" value="http://localhost/Producto3DWI/index.php" />
-        <input type="hidden" name="notify_url" value="URL_DE_NOTIFICACION" />
+      <!-- Contenedor para el botón de PayPal -->
+      <div id="paypal-button-container"></div>
 
-        <!-- Configuración básica -->
-        <input type="hidden" name="cmd" value="_cart">
-        <input type="hidden" name="upload" value="1">
-        <input type="hidden" name="business" value="utp0146906@alumno.utpuebla.edu.mx">
-
-        <?php
-        $i = 1;
-        foreach ($_SESSION['carrito'] as $id => $cantidad) {
-            $vehiculo = obtenerVehiculoPorId($id);
-            echo "<input type='hidden' name='item_name_$i' value='" . $vehiculo['nombre'] . "'>";
-            echo "<input type='hidden' name='amount_$i' value='" . $vehiculo['precio'] . "'>";
-            echo "<input type='hidden' name='quantity_$i' value='" . $cantidad . "'>";
-            $i++;
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '<?php echo number_format(obtenerTotalCarrito(), 2); ?>'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Gracias por su compra, ' + details.payer.name.given_name);
+                // Redirige al usuario a la página de confirmación o al inicio
+                window.location.href = 'http://localhost/Producto3DWI/Producto3DWI/index.php';
+            });
         }
-        ?>
-        
-        <input type="submit" value="Pagar con PayPal">
-    </form>
+    }).render('#paypal-button-container');
+</script>
 </body>
 </html>
-
 
 
 
