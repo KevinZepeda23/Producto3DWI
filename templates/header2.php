@@ -82,31 +82,34 @@
                     </ul>
                 </div>
                 <div class="bottom-content">
+            <?php if (isset($_SESSION['Usuario']) && $_SESSION['Usuario'] === true): ?>
                 <li class="">
-                        <a href="login/index.html ">
-                            <i class='bx bx-log-in icon' ></i>
-                            <span class="text nav-text">Log in</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="logout.php ">
-                            <i class='bx bx-log-out icon' ></i>
-                            <span class="text nav-text">Logout</span>
-                        </a>
-                    </li>
-                    <li class="mode">
-                        <div class="sun-moon">
-                            <i class='bx bx-moon icon moon'></i>
-                            <i class='bx bx-sun icon sun'></i>
-                        </div>
-                        <span class="mode-text text">Dark mode</span>
-                        <div class="toggle-switch">
-                            <span class="switch"></span>
-                        </div>
-                    </li>
-                </div>
+                    <a href="logout.php">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li class="">
+                    <a href="login/index.html">
+                        <i class='bx bx-log-in icon'></i>
+                        <span class="text nav-text">Log in</span>
+                    </a>
+                </li>
+            <?php endif; ?>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
             </div>
-        </nav>
+        </div>
+    </nav>
         <!-- Header-->
         <header class="bg-dark py-5"  style="background-image: url('assets/img/fondo_home_page2.jpg'); background-size: cover; background-position: center;  display: flex; ">
             <div class="container px-4 px-lg-5 my-5">

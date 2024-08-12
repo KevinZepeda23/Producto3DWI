@@ -33,14 +33,14 @@
             session_start();
             $_SESSION['Usuario'] = $usu;
             // Redirigir a la ruta deseada
-            header("Location: /Producto3DWI/index.php");
+            header("Location: /Producto3DWI/Producto3DWI/index.php");
             exit();
         } else {
             // Usuario o contraseña incorrectos
-            echo "<script> alert('Usuario y/o contraseña Incorrectos.');window.location= '/Producto3DWI/login/index.html' </script>";
+            echo "<script> alert('Usuario y/o contraseña Incorrectos.');window.location= '/Producto3DWI/Producto3DWI/login/index.html' </script>";
         }
     } else {
         // reCAPTCHA no verificado correctamente
-        echo "<script> alert('Error: Por favor, verifica que eres humano.');window.location= '/Producto3DWI/login/index.html' </script>";
+        echo "<script> alert('Error: Por favor, verifica que eres humano.');window.location= '/Producto3DWI/Producto3DWI/login/index.html' </script>";
     }
 ?>
