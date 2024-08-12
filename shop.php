@@ -1,7 +1,5 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión al inicio de cada archivo que la utilice
 
- // Usa require_once para evitar la inclusión múltiple
 require_once 'controlador/controlador.php'; // Usa require_once para evitar la inclusión múltiple
 
 // Obtiene el número de artículos en el carrito
@@ -26,7 +24,7 @@ $vehiculos = obtenerVehiculos();
     <style>
         body {
             font-family: Arial, sans-serif;
-            /* background-color: #f5f5f5; */
+            background-color: #f5f5f5;
             margin: 0;
             padding: 20px;
         }

@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/../modelo/modelo.php';
-
- // Asegúrate de iniciar la sesión
+session_start(); // Asegúrate de iniciar la sesión
 
 // Inicializa el carrito si no está definido
 if (!isset($_SESSION['carrito'])) {

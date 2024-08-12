@@ -1,10 +1,7 @@
 <?php
-session_start(); // Añade esto al principio de cada archivo PHP que utilice sesiones
+session_start();
+require 'modelo/modelo.php';
 include 'templates/header2.php';
-?>
-<?php
-require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para obtener los vehículos
-
 ?>
 
 <!DOCTYPE html>
@@ -32,35 +29,32 @@ require 'modelo/modelo.php'; // Asegúrate de tener la conexión al modelo para 
         ?>
     </ul>
 
-      <!-- Contenedor para el botón de PayPal -->
-      <div id="paypal-button-container"></div>
+    <!-- Contenedor para el botón de PayPal -->
+    <div id="paypal-button-container"></div>
 
-<script>
-    paypal.Buttons({
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '<?php echo number_format(obtenerTotalCarrito(), 2); ?>'
-                    }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                alert('Gracias por su compra, ' + details.payer.name.given_name);
-                // Redirige al usuario a la página de confirmación o al inicio
-                window.location.href = 'http://localhost/Producto3DWI/Producto3DWI/index.php';
-            });
-        }
-    }).render('#paypal-button-container');
-</script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '<?php echo number_format(obtenerTotalCarrito(), 2); ?>'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Gracias por su compra, ' + details.payer.name.given_name);
+                    // Redirige al usuario a la página de confirmación o al inicio
+                    window.location.href = 'http://localhost/Producto3DWI/Producto3DWI/index.php?paypal_payment_complete=1';
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 </body>
 </html>
 
-
-
 <?php
-    include 'templates/footer.php';
-
+include 'templates/footer.php';
 ?>

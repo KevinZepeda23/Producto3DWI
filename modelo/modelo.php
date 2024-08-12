@@ -37,6 +37,11 @@ function obtenerTotalCarrito() {
 
 function guardarCompra($usuario_id) {
     global $pdo;
+    
+    if (empty($_SESSION['carrito'])) {
+        return; // Salir si el carrito está vacío
+    }
+    
     $total = obtenerTotalCarrito();
     $stmt = $pdo->prepare('INSERT INTO compras (usuario_id, total) VALUES (?, ?)');
     $stmt->execute([$usuario_id, $total]);
